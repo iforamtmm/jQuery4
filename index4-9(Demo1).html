@@ -1,51 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="JS/jquery-2.1.4.js"></script>
-    <style>
-    </style>
-    <script>
-        $(function(){
-            $("#Email").trigger("focus");
-            $("#Email").focus(function(){
-                $("#spnTip").html("请输入邮箱地址");
+    <script src="JS/jquery-2.1.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var state = false;
+            $("#txtEmail").focus(function () {
+                if (state == false) {
+                    $(this).val('');
+                }
+                $("#spinfo").html("请输入您的邮箱地址")
             });
-//       失去焦点时的邮箱验证
-            $("#Email").blur(function(){
-                var txt=$(this).val();
-                if(txt===""){
-                    $("#spnTip").html("邮箱地址不能为空");
+            $("#txtEmail").blur(function () {
+                if ($(this).val() == '') {
+                    $("#spinfo").text("邮箱不能为空");
+//                    $("#txtEmail").focus();
                 }
-                else{
-                    if(!chkEmail(txt)){
-                    $("#spnTip").html("请输入正确的邮箱地址");
-                }else{
-                    $("#spnTip").html("");
-                }
+                else {
+                    if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
+                        $("#spinfo").text("邮箱格式不正确，请重新填写");
+//                        $(this).focus();
+                    }
+                    else {
+                        $("#spinfo").text('');
+                        $("#spinfo").append("<img src=images/onSuccess.gif />");
+                        state=true;
+                    }
                 }
             });
-//            邮箱验证
-            function chkEmail(strEmail){
-                var search_str = !/^w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if(!search_str.test(strEmail)){
-                    return false;
-                }else{
-                    return true;
-                }
-            }
         });
     </script>
 </head>
 <body>
-<div>
-    <form id="form1" action="#">
-        <div id="divEmail" class="divInit">
-            <input id="Email" type="email"/>
-            <span id="spnTip"></span>
-        </div>
-    </form>
-</div>
-</body>
+邮箱<input id="txtEmail" type="text" value="输入邮箱" /><span id="spinfo"></span><br /></body>
 </html>
