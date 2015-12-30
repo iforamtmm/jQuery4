@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="JS/jquery-2.1.4.js"></script>
+    <style>
+        body{
+            font-size: 13px;
+        }
+        .div1{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #666;
+            background-color: #909499;
+        }
+        input{
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("input").bind({focus:function(){
+                $("#div2")
+                        .show()
+                        .html("现在触发的是focus事件")
+            },
+            change:function(){
+                var val=$("#input1").val();
+                $("#div2")
+                        .show()
+                        .html("您输入的是:"+val)
+            }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="div1">
+    姓名:<input type="text" id="input1"/>
+    <div id="div2" class="div2" ></div>
+</div>
+</body>
+</html>

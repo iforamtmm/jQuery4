@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="JS/jquery-2.1.4.js"></script>
+<style>
+    body{
+        font-size: 13px;
+    }
+    .div1{
+        width: 200px;
+        height: 30px;
+        border: solid 1px #666666;
+        background-color: #909499;
+    }
+    .div1 p{
+       margin: 5px 5px 5px 10px;
+    }
+    .div2{
+        width: 200px;
+        height: auto;
+        border: solid 1px #666666;
+        background-color: #ffffff;
+        display: none;
+    }
+</style>
+    <script>
+        $(function(){
+            $("#div1").hover(function(){
+                $("#div2")
+                        .slideDown(1000);
+            },function(){
+                $("#div2")
+                        .slideUp(1000);
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="div1" class="div1">
+<p>jQuery简介</p>
+</div>
+<div id="div2" class="div2">
+    jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介
+    jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介
+    jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介jQuery简介
+</div>
+</body>
+</html>
