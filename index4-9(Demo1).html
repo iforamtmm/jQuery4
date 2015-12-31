@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="JS/jquery-2.1.4.js" type="text/javascript"></script>
+    <style>
+        input{
+            margin: 10px 10px 10px 10px;
+        }
+    </style>
     <script type="text/javascript">
         $(function () {
             var state = false;
@@ -11,21 +16,21 @@
                 if (state == false) {
                     $(this).val('');
                 }
-                $("#spinfo").html("请输入您的邮箱地址")
+                $("#spInfo").html("请输入您的邮箱地址")
             });
             $("#txtEmail").blur(function () {
                 if ($(this).val() == '') {
-                    $("#spinfo").text("邮箱不能为空");
+                    $("#spInfo").text("邮箱不能为空");
 //                    $("#txtEmail").focus();
                 }
                 else {
                     if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
-                        $("#spinfo").text("邮箱格式不正确，请重新填写");
+                        $("#spInfo").text("邮箱格式不正确，请重新填写");
 //                        $(this).focus();
                     }
                     else {
-                        $("#spinfo").text('');
-                        $("#spinfo").append("<img src=images/onSuccess.gif />");
+                        $("#spInfo").text('');
+                        $("#spInfo").append("<img src=img/5.png />");
                         state=true;
                     }
                 }
@@ -34,5 +39,5 @@
     </script>
 </head>
 <body>
-邮箱<input id="txtEmail" type="text" value="输入邮箱" /><span id="spinfo"></span><br /></body>
+邮箱<input id="txtEmail" type="text" value="输入邮箱" /><span id="spInfo"></span><br /></body>
 </html>
