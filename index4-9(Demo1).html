@@ -8,6 +8,9 @@
         input{
             margin: 10px 10px 10px 10px;
         }
+        .font{
+            color: #007fff;
+        }
     </style>
     <script type="text/javascript">
         $(function () {
@@ -16,7 +19,9 @@
                 if (state == false) {
                     $(this).val('');
                 }
-                $("#spInfo").html("请输入您的邮箱地址")
+                $("#spInfo")
+                        .html("请输入您的邮箱地址")
+                        .addClass("font")
             });
             $("#txtEmail").blur(function () {
                 if ($(this).val() == '') {
